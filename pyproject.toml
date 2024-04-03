@@ -24,6 +24,7 @@ dependencies = [
 
 [project.scripts]
 tmt = "turingmachinetranspiler.__main__:main"
+turingmachinetranspiler = "turingmachinetranspiler.__main__:main"
 
 [project.optional-dependencies]
 test = [
