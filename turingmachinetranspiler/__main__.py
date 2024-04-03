@@ -32,11 +32,12 @@ def main():
         return -1
 
     logger.debug("checking language syntax")
-    if not valid.language_syntax(file_path):
+    model = valid.language_syntax(file_path)
+    if model is None:
         return -1
 
     # Valid language.
-
+    model.states
     return 0
 
 

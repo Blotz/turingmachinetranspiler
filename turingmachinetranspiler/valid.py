@@ -35,16 +35,16 @@ def language_file_path(file_path: pathlib.Path) -> bool:
     return True
 
 
-def language_syntax(file_path: pathlib.Path) -> bool:
+def language_syntax(file_path: pathlib.Path):
 
     mm = turingmachinelang.tml_language.metamodel()
 
     try:
-        mm.model_from_file(file_path)
+        model = mm.model_from_file(file_path)
     except TextXSyntaxError as e:
         # logger.error("Syntax Error: %s", e)
         # traceback.print_exc(chain=False, limit=1, file=sys.stderr)
         print(f"Syntax Error: {e}", file=sys.stderr)
-        return False
+        return None
 
-    return True
+    return model
