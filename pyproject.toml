@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
     'turingmachinelib @ git+https://github.com/Blotz/turingmachinelib.git',
     'turingmachinelang @ git+https://github.com/Blotz/turingmachinelang.git',
+    'textx',
     'pre-commit'
 ]
 
