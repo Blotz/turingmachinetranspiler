@@ -7,6 +7,7 @@ from turingmachinetranspiler import (
     __doc__ as __package__doc__,
 )
 from turingmachinetranspiler import valid
+from turingmachinetranspiler import process
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +38,10 @@ def main():
         return -1
 
     # Valid language.
-    model.states
+    logger.debug("load language model")
+    p = process.interpret(model)
+
+    process.run(p)
     return 0
 
 

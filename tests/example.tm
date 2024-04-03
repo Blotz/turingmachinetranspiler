@@ -34,7 +34,7 @@ loop_setup  _  = 10, none, loop_inner_start;
 
 // pointer is pointing at loop mem
 is_zero 0  = 0, none, HALT;
-is_zero _  = _, none, decrement_1;
+is_zero _  = _, none, decrement;
 
 // Ideally this would go from 255-0
 // pointer is pointing at loop mem
