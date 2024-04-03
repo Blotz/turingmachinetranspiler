@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turingmachinetranspiler"
+version = "1.0.0"
+authors = [
+    {name = "Ferdinand Theil", email = "f.p.theil@proton.me"},
+]
+description = "Turing Machine Transpiler"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'turingmachinelib @ git+https://github.com/Blotz/turingmachinelib.git',
+    'turingmachinelang @ git+https://github.com/Blotz/turingmachinelang.git'
+]
+
+[project.scripts]
+tmt = "turingmachinetranspiler.__main__:main"
+
+[project.optional-dependencies]
+test = [
+    'pytest~=7.3.2'
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
