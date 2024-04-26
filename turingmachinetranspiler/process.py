@@ -3,15 +3,18 @@ import time
 
 from turingmachinelib.state import State, StateAction
 from turingmachinelib.structs import MoveAction
-from turingmachinelib.pointer import Pointer
+
+# from turingmachinelib.pointer import Pointer
+from turingmachinelib.turingmachine import TuringMachine
 
 logger = logging.getLogger(__name__)
 
 
-def interpret(model) -> Pointer:
+def interpret(model) -> TuringMachine:
     table: list[State] = []
-    table.append(State("INIT"))
-    table.append(State("HALT"))
+    init_state = State("INIT")
+    table.append(init_state)
+
     for s in model.states:
         cur_state_id = s.state_id.name
         next_state_id = s.next_state.name
@@ -63,17 +66,9 @@ def interpret(model) -> Pointer:
         sa = StateAction(write_value, move_action, next_state)
         cur_state.set_action(read_value, sa)
 
-    p = Pointer(table[0])
-    return p
+    tm = TuringMachine(init_state)
+    return tm
 
 
-def run(tm_p: Pointer):
-    try:
-        while True:
-            time.sleep(0)
-            logging.debug(tm_p.get_state().get_ident())
-            tm_p.print_tm()
-            input()
-            tm_p.compute()
-    except Exception:
-        pass
+def run(tm: TuringMachine):
+    tm.run()
