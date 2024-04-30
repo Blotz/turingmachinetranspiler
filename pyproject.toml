@@ -17,8 +17,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    'turingmachinelib @ git+https://github.com/Blotz/turingmachinelib.git',
-    'turingmachinelang @ git+https://github.com/Blotz/turingmachinelang.git',
+    'turingmachinelib @ git+https://github.com/Blotz/turingmachinelib.git@v1.0.0',
+    'turingmachinelang @ git+https://github.com/Blotz/turingmachinelang.git@v1.0.0',
     'textx',
     'pre-commit'
 ]
