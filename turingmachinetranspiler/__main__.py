@@ -39,9 +39,13 @@ def main():
 
     # Valid language.
     logger.debug("load language model")
-    p = process.interpret(model)
+    tm = process.interpret(model)
 
-    process.run(p)
+    if args.old_output:
+        tm.old_run()
+    else:
+        tm.run()
+        
     return 0
 
 
@@ -59,6 +63,7 @@ def init_parser() -> argparse.ArgumentParser:
         "--verbose", action="store_true", help="print debug messages"
     )
     log_levels.add_argument("--quiet", action="store_true", help="print less messages")
+    log_levels.add_argument("--old-output", action="store_true", help="print old output")
 
     return parser
 

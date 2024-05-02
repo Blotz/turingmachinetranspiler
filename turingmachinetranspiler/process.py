@@ -69,6 +69,3 @@ def interpret(model) -> TuringMachine:
     tm = TuringMachine(init_state)
     return tm
 
-
-def run(tm: TuringMachine):
-    tm.run()
